@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "example-pvc-1"
+  name: "pvc-annotation-http-kubevirt"
   labels:
     app: containerized-data-importer
   annotations:
