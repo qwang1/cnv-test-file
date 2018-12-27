@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "pvc-annotation-none-archive-negative"
+  labels:
+    app: containerized-data-importer
+  annotations:
+    cdi.kubevirt.io/storage.import.source: "none"
+    cdi.kubevirt.io/storage.contentType: "archive" #defaults to kubevirt if missing or invalid.
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi # Request a size that is large enough to accept the data from the source, including conversion
+  # Optional: Set the storage class or omit to accept the default
+  # storageClassName: local
