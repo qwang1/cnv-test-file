@@ -1,0 +1,15 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: "example-clone-dv"
+spec:
+  source:
+      pvc:
+        name: golden-pvc
+        namespace: qwang-bug
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: "1Gi"
