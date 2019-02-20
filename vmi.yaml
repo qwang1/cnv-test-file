@@ -1,0 +1,17 @@
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachineInstance
+metadata:
+  name: test-vmi
+spec:
+  domain:
+    resources:
+      requests:
+        memory: 2Gi
+    devices:
+      disks:
+      - name: mydisk
+  volumes:
+    - name: mydisk
+      persistentVolumeClaim:
+        claimName: golden-pvc
+# status: {}
