@@ -1,0 +1,14 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: dv-none-archive
+spec:
+  source:
+    blank: {}
+  contentType: archive
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi
