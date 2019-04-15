@@ -1,0 +1,16 @@
+# This example assumes you are using a default storage class
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: clone-dv-fedora
+spec:
+  source:
+    pvc:
+      namespace: qwang2
+      name: import-dv-fedora
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+storage: 5Gi
