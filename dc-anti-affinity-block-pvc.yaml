@@ -1,7 +1,7 @@
 apiVersion: v1
-kind: Deployment
+kind: DeploymentConfig
 metadata:
-  name: deployment-anti-affinity-block-pvc
+  name: dc-anti-affinity-block-pvc
 spec:
   affinity:
     podAntiAffinity:
