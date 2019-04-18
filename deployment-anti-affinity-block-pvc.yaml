@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: deployment-anti-affinity-block-pvc
+spec:
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - test
+          topologyKey: kubernetes.io/hostname
+  selector:
+    matchLabels:
+      app: test
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+        - name: my-container
+          image: debian
+          command: ["/bin/bash", "-c"]
+          args: [ "tail -f /dev/null" ]
+          volumeDevices:
+            - devicePath: /dev/rbdblock
+              name: my-volume
+          imagePullPolicy: IfNotPresent
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: block-pvc
