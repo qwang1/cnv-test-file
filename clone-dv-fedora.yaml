@@ -1,4 +1,3 @@
-# This example assumes you are using a default storage class
 apiVersion: cdi.kubevirt.io/v1alpha1
 kind: DataVolume
 metadata:
@@ -14,3 +13,4 @@ spec:
     resources:
       requests:
         storage: 5Gi
+    storageClassName: local-sc
