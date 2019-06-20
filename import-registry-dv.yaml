@@ -1,0 +1,16 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: import-registry-kubevirt-dv
+spec:
+  source:
+    registry:
+      url: "docker://kubevirt/fedora-cloud-registry-disk-demo"
+  contentType: null
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+    # storageClassName: local
