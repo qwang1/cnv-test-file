@@ -1,7 +1,7 @@
 apiVersion: cdi.kubevirt.io/v1alpha1
 kind: DataVolume
 metadata:
-  name: import-registry-kubevirt-dv
+  name: import-registry-dv
 spec:
   source:
     registry:
