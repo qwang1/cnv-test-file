@@ -3,8 +3,8 @@ apiVersion: kubevirt.io/v1alpha3
 kind: VirtualMachine
 metadata:
   labels:
-    kubevirt.io/vm: vm-fedora-registry-datavolume
-  name: vm-fedora-registry-datavolume
+    kubevirt.io/vm: vm-fedora-registry-dv
+  name: vm-fedora-registry-dv
 spec:
   dataVolumeTemplates:
   - metadata:
@@ -26,7 +26,7 @@ spec:
   template:
     metadata:
       labels:
-        kubevirt.io/vm: vm-fedora-datavolume
+        kubevirt.io/vm: vm-fedora-dv
     spec:
       domain:
         devices:
