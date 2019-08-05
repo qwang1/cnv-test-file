@@ -1,10 +1,10 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: test-pod-hostpath
+  name: pod-hostpath
 spec:
   containers:
-  - name: test-pod-hostpath
+  - name: pod-hostpath
     image: gcr.io/google_containers/busybox:1.24
     command:
       - "/bin/sh"
