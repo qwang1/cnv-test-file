@@ -10,13 +10,13 @@ spec:
       - "/bin/sh"
     args:
       - "-c"
-      - "touch /mnt/SUCCESS && exit 0 || exit 1"
+      - "dd if=/dev/zero of=/dev/null bs=10M count=100 2>&1"
     volumeMounts:
       - name: hostpath-pvc
         mountPath: "/mnt"
   nodeSelector:
     kubernetes.io/hostname: cnv-executor-talayan14-node-288531-1.example.com
-  restartPolicy: "Never"
+  restartPolicy: "OnFailure"
   volumes:
     - name: hostpath-pvc
       persistentVolumeClaim:
