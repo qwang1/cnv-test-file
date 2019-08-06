@@ -10,7 +10,7 @@ spec:
       - "/bin/sh"
     args:
       - "-c"
-      - "dd if=/dev/zero of=/dev/null bs=10M count=100 2>&1"
+      - "dd if=/dev/zero of=/tmp/test.data bs=1M count=1000 2>&1"
     volumeMounts:
       - name: hostpath-pvc
         mountPath: "/mnt"
