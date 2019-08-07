@@ -1,9 +1,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pvc-hostpath
+  name: hostpath-pvc
   annotations:
-    kubevirt.io/provisionOnNode: cnv-executor-talayan14-node-288531-1.example.com
+    kubevirt.io/provisionOnNode: cnv-executor-qwang-cnv14-node-a9e382-1.example.com
 spec:
   storageClassName: kubevirt-hostpath-provisioner
   accessModes:
