@@ -1,0 +1,17 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: hostpath-dv-import
+  annotations:
+    kubevirt.io/provisionOnNode: cnv-executor-qwang-cnv14-node-a9e382-1.example.com
+spec:
+  source:
+      http:
+         url: "https://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img"
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi
+    storageClassName: kubevirt-hostpath-provisioner
