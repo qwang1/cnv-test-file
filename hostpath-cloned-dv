@@ -1,0 +1,16 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: hostpath-cloned-dv
+spec:
+  source:
+    pvc:
+      namespace: qwang89-1
+      name: hostpath-dv-import-win19
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi
+    storageClassName: kubevirt-hostpath-provisioner
