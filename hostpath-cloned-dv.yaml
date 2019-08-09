@@ -2,6 +2,8 @@ apiVersion: cdi.kubevirt.io/v1alpha1
 kind: DataVolume
 metadata:
   name: hostpath-cloned-dv
+  annotations:
+    kubevirt.io/provisionOnNode: cnv-executor-qwang-14-node-b19d80-1.example.com
 spec:
   source:
     pvc:
