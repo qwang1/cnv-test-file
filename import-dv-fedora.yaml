@@ -5,6 +5,7 @@ metadata:
 spec:
   source:
       http:
+         #url: "https://dl.fedoraproject.org/pub/fedora/linux/releases/30/Cloud/x86_64/images/Fedora-Cloud-Base-30-1.2.x86_64.raw.xz"
          url: "https://dl.fedoraproject.org/pub/fedora/linux/releases/29/Cloud/x86_64/images/Fedora-Cloud-Base-29-1.2.x86_64.qcow2"
   pvc:
     accessModes:
@@ -12,4 +13,4 @@ spec:
     resources:
       requests:
         storage: 5Gi
-    storageClassName: local-sc
+    #storageClassName: local-sc
