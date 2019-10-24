@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.10-alpine
+    ports:
+    - containerPort: 80
+    volumeMounts:
+      - name: hostpath-pvc
+        mountPath: "/mnt"
+  nodeSelector:
+    kubernetes.io/hostname: cluster1-nhrtc-worker-0-tlflj
+  restartPolicy: "OnFailure"
+  volumes:
+    - name: hostpath-pvc
+      persistentVolumeClaim:
+        claimName: hostpath-dv-import
