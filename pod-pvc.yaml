@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-pvc
+spec:
+  containers:
+  - name: pod-pvc
+    image: gcr.io/google_containers/busybox:1.24
+    command:
+      - "/bin/sh"
+    args:
+      - "-c"
+      - "trap exit TERM; while true; do sleep 1; done"
+    volumeMounts:
+      - name: test-pvc
+        mountPath: "/mnt"
+#  nodeSelector:
+ #   kubernetes.io/hostname: cnv-executor-qwang-cnv14-node-a9e382-1.example.com
+  restartPolicy: "OnFailure"
+  volumes:
+    - name: test-pvc
+      persistentVolumeClaim:
+        claimName: import-dv-cirros
