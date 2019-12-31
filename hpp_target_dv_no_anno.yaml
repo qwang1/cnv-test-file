@@ -1,0 +1,18 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: hostpath-dv-target
+#  annotations:
+ #   kubevirt.io/provisionOnNode: cnv-executor-qwang-rhel-worker-1
+spec:
+  source:
+    pvc:
+      namespace: qwang6
+      name: hostpath-dv-source
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+    storageClassName: hostpath-provisioner
