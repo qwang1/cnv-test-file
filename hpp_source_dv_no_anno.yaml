@@ -1,0 +1,17 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: hostpath-dv-source
+ # annotations:
+  #  kubevirt.io/provisionOnNode: host-172-16-0-29
+spec:
+  source:
+      http:
+         url: "http://cnv-qe-server.rhevdev.lab.eng.rdu2.redhat.com/files/rhel-images/rhel-8/rhel-8.qcow2"
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+    storageClassName: hostpath-provisioner
