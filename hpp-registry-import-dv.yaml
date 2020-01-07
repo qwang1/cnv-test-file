@@ -1,0 +1,17 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: hpp-registry-import-dv
+  annotations:
+    kubevirt.io/provisionOnNode: host-172-16-0-37
+spec:
+  source:
+    registry:
+      url: "docker://kubevirt/cirros-registry-disk-demo"
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi
+    storageClassName: hostpath-provisioner
