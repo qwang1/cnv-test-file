@@ -1,0 +1,45 @@
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/vm: vm-cirros-dv
+  name: vm-cirros-dv
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      annotations:
+        kubevirt.io/provisionOnNode: ${PROVISION_ON_NODE}
+      name: cirros-dv
+    spec:
+      pvc:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100M
+        storageClassName: kubevirt-hostpath-provisioner
+      source:
+        http:
+          url: http://cnv-qe-server.rhevdev.lab.eng.rdu2.redhat.com/files/cdi-test-images/cirros_images/cirros-0.4.0-x86_64-disk.qcow2
+  running: false
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: vm-datavolume
+    spec:
+      domain:
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: datavolumevolume
+        machine:
+          type: ""
+        resources:
+          requests:
+            memory: 64M
+      terminationGracePeriodSeconds: 0
+      volumes:
+      - dataVolume:
+          name: cirros-dv
+        name: datavolumevolume
