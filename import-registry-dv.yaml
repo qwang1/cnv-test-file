@@ -5,7 +5,8 @@ metadata:
 spec:
   source:
     registry:
-      url: "docker://kubevirt/fedora-cloud-registry-disk-demo"
+      url: "docker://kubevirt/fedora-cloud-registry-disk-demo" 
+      # certConfigMap: my-registr-cert # Use TLS server with cert
   contentType: null
   pvc:
     accessModes:
