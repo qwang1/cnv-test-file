@@ -1,0 +1,15 @@
+apiVersion: cdi.kubevirt.io/v1alpha1
+kind: DataVolume
+metadata:
+  name: preallocated-dv
+spec:
+  source:
+    http:
+      url: "http://cnv-qe-server.rhevdev.lab.eng.rdu2.redhat.com/files/cnv-tests/rhel-images/rhel-82.qcow2"
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+  preallocation: true  
