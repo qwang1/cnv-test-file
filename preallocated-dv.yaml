@@ -1,4 +1,4 @@
-apiVersion: cdi.kubevirt.io/v1alpha1
+apiVersion: cdi.kubevirt.io/v1beta1 # perallocation is only available on v1beta1
 kind: DataVolume
 metadata:
   name: preallocated-dv
@@ -12,4 +12,5 @@ spec:
     resources:
       requests:
         storage: 5Gi
-  preallocation: true  
+    storageClassName: hostpath-provisioner
+  preallocation: true
