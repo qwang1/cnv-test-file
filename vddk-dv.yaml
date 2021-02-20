@@ -12,7 +12,7 @@ spec:
       secretRef: "vddk-secret"
     pvc:
       accessModes:
-      - ReadWriteOnce
+        - ReadWriteOnce
       resources:
         requests:
           storage: "32Gi"
